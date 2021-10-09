@@ -29,20 +29,12 @@ const onCreateBoxes = () => {
   const boxesArray = [];
   let boxSize = 30;
   for (let i = 1; i <= inputValue; i += 1) {
-    if (i === 1) {
-      const firstBox = document.createElement("div");
-      firstBox.style.width = `${boxSize}px`;
-      firstBox.style.height = `${boxSize}px`;
-      firstBox.style.backgroundColor = `${getRandomHexColor()}`;
-      boxesArray.push(firstBox);
-    } else {
-      const otherBox = document.createElement("div");
-      boxSize += 10;
-      otherBox.style.width = `${boxSize}px`;
-      otherBox.style.height = `${boxSize}px`;
-      otherBox.style.backgroundColor = `${getRandomHexColor()}`;
-      boxesArray.push(otherBox);
-    }
+    const box = document.createElement("div");
+    box.style.width = `${boxSize}px`;
+    box.style.height = `${boxSize}px`;
+    box.style.backgroundColor = `${getRandomHexColor()}`;
+    boxesArray.push(box);
+    boxSize += 10;
   }
   boxesContainer.append(...boxesArray);
 };
