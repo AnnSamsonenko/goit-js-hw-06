@@ -15,14 +15,14 @@
 // РЕШЕНИЕ
 
 const inputRef = document.querySelector("#validation-input");
-const dataValidLength = parseInt(inputRef.dataset.length);
 
-const onValidSimbolsInInput = (event) => {
-  if (event.currentTarget.value.length === dataValidLength) {
-    event.currentTarget.classList.add("valid");
-    event.currentTarget.classList.replace("invalid", "valid");
+const onValidSimbolsInInput = ({ target: { value, dataset } }) => {
+  if (value.length === parseInt(dataset.length)) {
+    inputRef.classList.add("valid");
+    inputRef.classList.remove("invalid");
   } else {
-    event.currentTarget.classList.add("invalid");
+    inputRef.classList.add("invalid");
+    inputRef.classList.remove("valid");
   }
 };
 
